@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-3.1.1.js" type="text/javascript"></script>
+
+        <style>
+
+
+            .pulsanteAccesoSpento span:nth-child(2){
+
+                font-weight: bold;
+
+            }
+
+            .pulsanteAccesoSpento.acceso span:nth-child(1){
+
+
+
+                font-weight: bold;
+            }
+
+
+            .pulsanteAccesoSpento.acceso span:nth-child(2){
+
+                font-weight: normal;
+            }
+
+            .pulsanteAccesoSpento{
+
+                border: dotted 3px black;
+                width: 200px;
+                height: 20px;
+
+                text-align: center;
+                
+                margin:auto;
+
+            }
+
+
+        </style>
+
+    </head>
+    <body>
+
+
+        <br>
+        <br>
+        <div class="pulsanteAccesoSpento ">  <!-- preparo le classi sul css e poi le richiamo sugli oggetti-->
+
+            Proprieta:
+
+            <span>Acceso</span>/
+            <span>Spento</span>
+
+        </div>
+
+        <br>
+        <br>
+
+        <div class="pulsanteAccesoSpento acceso">
+
+            Proprieta:
+
+            <span>Acceso</span>/
+            <span>Spento</span>
+
+        </div>
+
+
+    </body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery-3.1.1.js" type="text/javascript"></script>
+        <style>
+
+            #main{
+
+                border: solid 1px black;
+                width: 200PX;
+                height: 50px;
+
+                overflow: auto;
+
+            }
+
+            input{
+
+                width: 20px;
+                height: 10px;
+
+                type:submit;
+                value:cc;
+            }
+
+
+            img{
+                height: 15px;
+                width: 15px;
+            }
+
+
+            .color{
+                border: solid 1px black;
+                width: 20px;
+                height: 20px;
+                float: left;
+
+            }
+
+            #colore1{
+                background-color: yellow;
+            }
+
+            #colore2{
+                background-color: blue;
+            }
+
+            #colore3{
+                background-color: red;
+            }
+
+            #Sfond-Test span:nth-child(1){
+
+                font-weight: bold;
+            }
+
+            #scrollBarSiNo {
+
+                height: 15px;
+                width: 90px;
+                border: solid 2px black;
+            }
+
+
+
+            #OmbraTesto {
+
+                height: 15px;
+                width: 140px;
+                border: solid 2px black;
+            }
+
+            #scrollBarSiNo span:nth-child(1){
+
+                font-weight: bold;
+            }
+
+
+            #OmbraTesto span:nth-child(2){
+
+                font-weight: bold;
+            }
+
+
+        </style>
+
+
+    </head>
+    <body>
+
+        <div id="main">
+
+        </div>
+
+
+
+        <button class="lettera" value="A" >
+            A
+        </button>
+
+        <button class="lettera" value="B" >
+            B
+        </button>
+
+
+        <button class="lettera" value="C" >
+            C
+        </button>
+
+        <button class="lettera" value="D" >
+            D
+        </button>
+
+        <button class="lettera" value="E" >
+            E
+        </button>
+
+
+        <br>
+        <button id="spazio">
+            spazio
+        </button>
+
+        <button value="a capo">
+            a capo
+        </button>
+
+
+
+        <button  id="canc" >
+            cance
+        </button>
+
+        <button  id="cancult" >
+            cancult
+        </button>
+
+        <button  id="Sfond-Test" >
+            <span>sfondo</span>/
+            <span>testo</span>
+
+        </button>
+
+
+        <br>
+
+        <img id="omino" src="imm/smileb.png" >
+
+        <br>
+
+        <div class="color" id="colore1" v="yellow" > </div>   <!--posso ussare anche l'onclick e dargli una variabile v con l'attributo e uso il metodo css   -->
+        <div class="color" id="colore2" v="blue"></div>
+        <div class="color" id="colore3" v="red"></div>
+
+        <br>
+        <br>
+
+        <div id="scrollBarSiNo">Scroll:
+            <span>si</span>/
+            <span>no</span>
+
+
+        </div>
+
+        <br>
+
+        <div id="OmbraTesto">OmbraTesto:
+            <span>si</span>/
+            <span>no</span>
+
+
+        </div>
+
+
+
+
+
+
+        <script>
+
+            $(".lettera").click(function () {
+                var v = $(this).attr("value");
+                $("#main").html($("#main").html() + v);
+            });
+
+        </script>
+
+        <script>
+
+            $("#canc").click(function () {
+
+                var r = confirm("sei sicuro?");
+
+                if (!r) {
+                    return;
+
+                }
+                $("#main").html("");
+                $("#main").css("background-color", "white")
+
+            });
+
+        </script>
+
+        <script>
+
+            $("#spazio").click(function () {
+                var v = "&nbsp;";
+                $("#main").html();
+                $("#main").html(($("#main").html() + v));
+
+            });
+
+        </script>
+
+        <script>
+
+            $("#cancult").click(function () {
+                var giaScritto = $("#main").html();
+
+                var nuovaStringa = giaScritto.substring(0, giaScritto.length - 1);
+                $("#main").html(nuovaStringa);
+
+
+            });
+
+        </script>
+
+        <script>
+
+            $("div.color").click(function () {
+
+                $("div.color").css("outline", "0px");  /** richiamo tutti i div*/
+
+                $(this).css("outline", " dotted 2px black");  /** richiamo solo il div selezionato*/
+
+
+
+
+                var v = $(this).attr("v");
+
+                if (target == "Sfondo") {     //riprendo la variabile globale target e la inserisco dentro un if x capire se quando seleziono sfondo o testo, cambia il colore di sfondo o testo
+
+                    $("#main").css("background-color", v)
+                } else {
+                    $("#main").css("color", v)
+                }
+
+            });
+
+
+
+
+
+
+        </script>
+
+        <script>
+
+            $("#omino").click(function () {
+
+                var v = '<img src="imm/smileb.png" >';
+                $("#main").html($("#main").html() + v);
+
+            });
+
+        </script>
+
+        <script>
+            var target = "Sfondo"
+
+            $("#Sfond-Test").click(function () {
+
+                if (target == "Sfondo") {
+
+                    $("#Sfond-Test span:nth-child(1)").css("font-weight", "normal")
+                    $("#Sfond-Test span:nth-child(2)").css("font-weight", "bold")
+
+                    target = "Testo"
+                } else {
+
+                    $("#Sfond-Test span:nth-child(1)").css("font-weight", "bold")
+                    $("#Sfond-Test span:nth-child(2)").css("font-weight", "normal")
+
+                    target = "Sfondo"
+
+                }
+
+            })
+
+
+
+        </script>
+
+
+        <script>
+
+            $("#scrollBarSiNo").data("scrollBar", true);
+
+            $("#scrollBarSiNo").click(function () {
+
+
+                var b = $("#scrollBarSiNo").data("scrollBar")
+
+                if (b) {
+
+                    $("#main").css("overflow", "hidden");
+                    $("#scrollBarSiNo").data("scrollBar", false);
+                    $("#scrollBarSiNo span:nth-child(1)").css("font-weight", "normal");
+                    $("#scrollBarSiNo span:nth-child(2)").css("font-weight", "bold");
+
+                } else {
+
+                    $("#main").css("overflow", "scroll");
+                    $("#scrollBarSiNo").data("scrollBar", true);
+                    $("#scrollBarSiNo span:nth-child(1)").css("font-weight", "bold");
+                    $("#scrollBarSiNo span:nth-child(2)").css("font-weight", "normal");
+
+
+                }
+            })
+
+
+        </script>
+
+        <script>
+
+            $("#OmbraTesto").data("ombra", false);
+
+            $("#OmbraTesto").click(function () {
+
+
+                var b = $("#OmbraTesto").data("ombra")
+
+                if (!b) {
+
+                    $("#main").css("text-shadow", "3px 3px 3px blue");
+                    $("#OmbraTesto").data("ombra", true);
+                    $("#OmbraTesto span:nth-child(1)").css("font-weight", "bold");
+                    $("#OmbraTesto span:nth-child(2)").css("font-weight", "normal");
+
+                } else {
+
+                    $("#main").css("text-shadow", "none");
+                    $("#OmbraTesto").data("ombra", false);
+                    $("#OmbraTesto span:nth-child(1)").css("font-weight", "normal");
+                    $("#OmbraTesto span:nth-child(2)").css("font-weight", "bold");
+
+
+                }
+            });
+
+
+        </script>
+
+    </body>
+</html>
